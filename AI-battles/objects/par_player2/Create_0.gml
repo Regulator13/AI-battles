@@ -5,7 +5,7 @@
 event_inherited();
 
 //define macros
-#macro STATE_IDLE
-#macro STATE_ADVANCE
-#macro STATE_RETREAT
-#macro STATE_ATTACK
+#macro STATE_IDLE 1
+#macro STATE_ADVANCE 2
+#macro STATE_RETREAT 3
+#macro STATE_ATTACK 4

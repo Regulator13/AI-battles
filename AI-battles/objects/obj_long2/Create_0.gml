@@ -13,4 +13,4 @@ bullet_dmg = 5
 bullet_reload = 20
 
 //state
-state = STATE_IDLE;
+state = STATE_IDLE

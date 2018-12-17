@@ -26,7 +26,7 @@ else {
 			
 			//set values
 			direction = point_direction(x, y, enemy_nearest.x, enemy_nearest.y)
-			speed = bullet_speed
+			speed = other.bullet_speed
 			
 			//set range
 			alarm[0] = other.bullet_range
