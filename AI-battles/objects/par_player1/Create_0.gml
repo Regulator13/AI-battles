@@ -5,3 +5,5 @@ event_inherited();
 
 can_shoot = true
 
+//team
+team = 1
