@@ -4,7 +4,7 @@
 event_inherited();
 
 //shared variables
-move_speed_max = 3
+move_speed_max = 2
 move_speed = move_speed_max
 team = 2
 bullet_range_max = 20 //number of steps a bullet can travel

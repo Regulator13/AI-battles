@@ -41,6 +41,6 @@ if can_shoot{
 		}
 	}
 }
-else if alarm[0] >= 0{
+else if alarm[0] <= 0{
 	alarm[0] = bullet_reload
 }
