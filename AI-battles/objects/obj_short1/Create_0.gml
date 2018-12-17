@@ -1,5 +1,4 @@
-/// @description Insert description here
-
+/// @description Set variables
 // Inherit the parent event
 event_inherited();
 
