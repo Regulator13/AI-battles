@@ -31,19 +31,19 @@
     },
     "resources": [
         {
-            "Key": "0874a6d4-5c23-474c-b547-5989532f1901",
-            "Value": {
-                "id": "872bb253-e52f-40ec-bfd8-ef7450d2aafc",
-                "resourcePath": "objects\\obj_bullet2\\obj_bullet2.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "0930a190-f0b1-4279-8db3-c9030dc87074",
             "Value": {
                 "id": "c6821dd3-b940-4050-bb65-4d089283a2cd",
                 "resourcePath": "views\\0930a190-f0b1-4279-8db3-c9030dc87074.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "1ba0cae9-5c41-4821-a914-7c75aedaadb7",
+            "Value": {
+                "id": "f73f09d4-7d5b-48aa-9342-48746ea51eb6",
+                "resourcePath": "tilesets\\til_terrain\\til_terrain.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -175,6 +175,14 @@
             }
         },
         {
+            "Key": "70d6d70b-fc84-4203-b0b0-19cb09bac8eb",
+            "Value": {
+                "id": "9d35e6dd-483c-479a-895f-ff17e11b7190",
+                "resourcePath": "sprites\\spr_terrain\\spr_terrain.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "75a704e1-9265-4cb6-8af3-97fee0ad91ec",
             "Value": {
                 "id": "3ea57fd5-8861-4d70-a5f8-fdf63be80b47",
@@ -263,14 +271,6 @@
             }
         },
         {
-            "Key": "af7aae29-bf44-4681-83f6-2a545a72c59c",
-            "Value": {
-                "id": "6cae6203-50f8-4a50-b65a-59c7334a2019",
-                "resourcePath": "sprites\\spr_bullet2\\spr_bullet2.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "bd5cf74d-335d-4dfd-bf36-29e245867980",
             "Value": {
                 "id": "3eea6fb7-c296-4f02-ba44-9322f6085073",
@@ -351,18 +351,10 @@
             }
         },
         {
-            "Key": "f30fc279-0d10-4bc7-a583-67d55365d77a",
-            "Value": {
-                "id": "1cfd6dd4-dae9-419a-bb05-775b0abb6cba",
-                "resourcePath": "objects\\par_bullet\\par_bullet.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "f34ebc5a-4101-425d-9508-bbe4716c28c9",
             "Value": {
                 "id": "6a72d64d-e23c-488d-a9df-c26b7eb51fed",
-                "resourcePath": "objects\\obj_bullet1\\obj_bullet1.yy",
+                "resourcePath": "objects\\obj_bullet\\obj_bullet.yy",
                 "resourceType": "GMObject"
             }
         },
