@@ -38,4 +38,7 @@ with instance_place(x, y, obj_bullet){
 	}
 	instance_destroy()
 }
-	
+
+if hp <= 0{
+	instance_destroy()
+}
