@@ -14,3 +14,7 @@ bullet_reload = 30
 
 //state
 state = STATE_ATTACK
+
+//target
+target_x = 32
+target_y = room_height/2

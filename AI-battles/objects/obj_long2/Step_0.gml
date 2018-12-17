@@ -6,30 +6,37 @@ event_inherited();
 //calculate bullet range
 range = bullet_range * bullet_speed
 
-//find nearest enemy
-var enemy_nearest = instance_nearest(x, y, par_player1)
+switch(state) {
+	case STATE_ATTACK:
+		//find nearest enemy
+		enemy_nearest = instance_nearest(x, y, obj_castle1)
 
-//move towards enemy
-if (distance_to_object(obj_castle1) < range) {
-	move_towards_point(enemy_nearest.x, enemy_nearest.y, move_speed)
-}
-else {
-	//stop
-	speed = 0;
+		if (instance_exists(enemy_nearest)) {
+			//move towards enemy
+			var dis = distance_to_object(enemy_nearest)
+			if (dis > range) {
+				move_towards_point(enemy_nearest.x, enemy_nearest.y, move_speed)
+			}
+			else {
+				//stop
+				speed = 0
 	
-	//attack
-	if (alarm[0] < 0) {
-		//shoot bullet
-		with(instance_create_layer(x, y, "Instances", obj_bullet)) {
-			// set team
-			team = 2
-			
-			//set values
-			direction = point_direction(x, y, enemy_nearest.x, enemy_nearest.y)
-			speed = other.bullet_speed
-			
-			//set range
-			alarm[0] = other.bullet_range
+				scr_shoot2()
+			}
 		}
-	}
+		break
+	case STATE_ADVANCE:
+		move_towards_point(target_x, target_y, move_speed)
+		if distance_to_point(target_x, target_y) < 32 {
+			state = STATE_ATTACK
+		}
+		break
+	case STATE_RETREAT:
+		break
 }
+
+var castle = obj_castle2;
+if castle.hp < castle.hp_max {
+	//retreat
+}
+	

@@ -13,4 +13,8 @@ bullet_dmg = 5
 bullet_reload = 20
 
 //state
-state = STATE_IDLE
+state = STATE_ADVANCE
+
+//target
+target_x = room_width/4
+target_y = room_height/2
