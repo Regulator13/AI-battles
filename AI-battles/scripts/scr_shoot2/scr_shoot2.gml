@@ -19,15 +19,16 @@ if (alarm[0] < 0) {
 		if (predict) {
 			var dis = distance_to_object(other.target)
 			var t = other.bullet_speed/dis
-			var px = other.target.x + other.target.hspeed * t
-			var py = other.target.y + other.target.vspeed * t
+			var px = other.target.x + (other.target.hspeed * t)/1
+			var py = other.target.y + (other.target.vspeed * t)/1
 			direction = point_direction(x, y, px, py)
 		}
 		
 		#endregion
 		
 		speed = other.bullet_speed
-			
+		dmg = other.bullet_dmg
+		
 		//set range
 		alarm[0] = other.bullet_range
 	}

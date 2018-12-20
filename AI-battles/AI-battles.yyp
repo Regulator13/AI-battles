@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "7e863806-69fd-4026-aed2-bb08e1423e66",
+            "Value": {
+                "id": "3fd4dc6a-a85b-43c4-858c-160d3bc28eff",
+                "resourcePath": "scripts\\scr_increment_in_bounds\\scr_increment_in_bounds.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "8e452c30-8453-46e1-9f8d-149959fa8ba0",
             "Value": {
                 "id": "ab9064c7-351f-42c2-bc7a-e367e42acbbd",
@@ -401,7 +409,8 @@
     ],
     "script_order": [
         "3a103ef1-b9f0-41c3-b1a4-54734aec9f9c",
-        "78b7596b-378c-407a-9b32-cda2cc36536e"
+        "78b7596b-378c-407a-9b32-cda2cc36536e",
+        "7e863806-69fd-4026-aed2-bb08e1423e66"
     ],
     "tutorial": ""
 }
