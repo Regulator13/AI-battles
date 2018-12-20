@@ -8,9 +8,6 @@ range = bullet_range * bullet_speed - 4
 
 switch(state) {
 	case STATE_ATTACK:
-		//find nearest enemy
-		target = instance_nearest(x, y, par_player1)
-
 		if (instance_exists(target)) {
 			//move towards enemy
 			var dis = distance_to_object(target)
@@ -24,6 +21,11 @@ switch(state) {
 				scr_shoot2()
 			}
 		}
+		else {
+			//find nearest enemy
+			target = instance_nearest(x, y, par_player1)
+		}
+		
 		break
 	case STATE_ADVANCE:
 		move_towards_point(target_x, target_y, move_speed)
