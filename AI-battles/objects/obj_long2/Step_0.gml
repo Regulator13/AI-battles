@@ -4,18 +4,18 @@
 event_inherited();
 
 //calculate bullet range
-range = bullet_range * bullet_speed
+range = bullet_range * bullet_speed - range_buffer
 
 switch(state) {
 	case STATE_ATTACK:
 		//find nearest enemy
-		enemy_nearest = instance_nearest(x, y, obj_castle1)
+		target = instance_nearest(x, y, obj_castle1)
 
-		if (instance_exists(enemy_nearest)) {
+		if (instance_exists(target)) {
 			//move towards enemy
-			var dis = distance_to_object(enemy_nearest)
+			var dis = distance_to_object(target)
 			if (dis > range) {
-				move_towards_point(enemy_nearest.x, enemy_nearest.y, move_speed)
+				move_towards_point(target.x, target.y, move_speed)
 			}
 			else {
 				//stop

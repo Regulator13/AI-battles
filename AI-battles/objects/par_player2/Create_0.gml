@@ -7,10 +7,11 @@ event_inherited();
 //team
 team = 2
 
-enemy_nearest = noone;
+target = noone;
 
 //define macros
 #macro STATE_IDLE 1
 #macro STATE_ADVANCE 2
 #macro STATE_RETREAT 3
 #macro STATE_ATTACK 4
+#macro STATE_GAURD 5

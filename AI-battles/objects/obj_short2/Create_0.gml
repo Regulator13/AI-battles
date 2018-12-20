@@ -14,6 +14,7 @@ bullet_reload = 30
 
 //state
 state = STATE_ATTACK
+target = obj_long2
 
 //target
 target_x = 32
