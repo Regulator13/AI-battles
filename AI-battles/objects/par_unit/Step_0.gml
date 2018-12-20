@@ -32,7 +32,8 @@ else{
 	
 //Units hit by bullet
 with instance_place(x, y, obj_bullet){
-	if team != other.team{
+	//check team
+	if (team != other.team){
 		//if the player
 		if irandom(other.hit_prob_max) <= other.hit_prob{
 			other.hp -= dmg
@@ -40,6 +41,11 @@ with instance_place(x, y, obj_bullet){
 		instance_destroy()
 	}
 }
+
+//collide with solids
+if !place_free(x + hspeed, y + vspeed){
+	x -= hspeed
+	y -= vspeed
 
 if hp <= 0{
 	instance_destroy()

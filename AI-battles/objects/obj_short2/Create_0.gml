@@ -4,7 +4,7 @@
 event_inherited();
 
 //shared variables
-move_speed_max = 5
+move_speed_max = 3
 move_speed = move_speed_max
 team = 2
 bullet_range_max = 8 //number of steps a bullet can travel
@@ -14,3 +14,7 @@ bullet_reload = 30
 
 //state
 state = STATE_ATTACK
+
+//target
+target_x = 32
+target_y = room_height/2
