@@ -30,7 +30,7 @@ else{
 }
 	
 	
-//Get hit by bullet
+//Units hit by bullet
 with instance_place(x, y, obj_bullet){
 	//check team
 	if (team != other.team){
