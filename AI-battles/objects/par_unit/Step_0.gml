@@ -46,6 +46,7 @@ with instance_place(x, y, obj_bullet){
 if !place_free(x + hspeed, y + vspeed){
 	x -= hspeed
 	y -= vspeed
+}
 
 if hp <= 0{
 	instance_destroy()
