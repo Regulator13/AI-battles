@@ -40,7 +40,12 @@ with instance_place(x, y, obj_bullet){
 		//if the player
 		if irandom(other.hit_prob_max) <= other.hit_prob{
 			other.hp -= dmg
-			with (other) scr_state_switch2(STATE_SCATTER, scatter_time)
+			with (other) {
+				scr_state_switch2(STATE_SCATTER, scatter_time)
+				hit_direction = other.direction
+				hit_damage = other.dmg
+				scatter_direction = hit_direction + 90
+			}
 		}
 		instance_destroy()
 	}
@@ -77,14 +82,19 @@ switch(state) {
 				//scatter if overlapping
 				if place_meeting(x, y, par_player2)
 					scr_state_switch2(STATE_SCATTER, scatter_time)
+					
+				if collision_line(x, y, target.x, target.y, obj_castle2, false, true)
+					scr_state_switch2(STATE_SCATTER, scatter_time)
 				
 				//shoot
-				scr_shoot2(false)
+				scr_shoot2(true)
 			}
 		}
 		else {
 			//find nearest enemy
 			target = instance_nearest(x, y, par_player1)
+			if !instance_exists(target)
+				target = instance_nearest(x, y, obj_castle1)
 		}
 		
 		break
@@ -108,7 +118,13 @@ switch(state) {
 		break
 	case STATE_SCATTER:
 		if state_first {
-			direction = irandom(360)
+			if scatter_direction != -1 {
+				direction = scatter_direction
+				scatter_direction = -1
+			}
+			else
+				direction = irandom(360)
+			
 			speed = move_speed
 			state_first = false
 		}
