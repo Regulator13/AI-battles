@@ -14,7 +14,7 @@ bullet_reload = 20
 range_buffer = 52
 
 //state
-state = STATE_ADVANCE
+state = STATE_ATTACK
 
 //target
 target_x = room_width/4
