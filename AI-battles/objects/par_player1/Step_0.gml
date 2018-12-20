@@ -3,10 +3,21 @@
 // Inherit the parent event
 event_inherited();
 
+Target = noone
+
 if state == ST_ATTACK{
 	if instance_exists(obj_castle2){
 		if distance_to_object(obj_castle2) > 64{
 			move_towards_point(obj_castle2.x + obj_castle2.sprite_width/2, obj_castle2.y, move_speed)
+		}
+	}
+}
+
+if state == ST_GUARD{
+	if instance_exists(Inst_enemy){
+		if distance_to_object(Inst_enemy) > (bullet_speed * bullet_range - SHOOT_TOL){
+			move_towards_point(Inst_enemy.x + Inst_enemy.sprite_width/2, Inst_enemy.y, move_speed)
+			Target = Inst_enemy
 		}
 	}
 }
@@ -20,42 +31,49 @@ if state == ST_DEFEND{
 }
 
 if hp < 25 and instance_exists(collision_circle(x + sprite_width/2, y + sprite_height/2, 32, obj_bullet, false, true)){
-	state = ST_DODGE
-}
-
-if state == ST_DODGE{
 	var Dodge = collision_circle(x + sprite_width/2, y + sprite_height/2, 32, obj_bullet, false, true)
 	if instance_exists(Dodge) and Dodge.team != team{
-		direction = Inst.direction + 90
+		direction = Dodge.direction + 90
 		speed = move_speed
 	}
-	else state = ST_ATTACK
 }
 
 if can_shoot{
-	Inst = collision_circle(x + sprite_width/2, y + sprite_height/2, bullet_speed * bullet_range, par_player2, false, true){
-		if instance_exists(Inst){
-			with instance_create_layer(x + sprite_width/2, y + sprite_height/2, "Instances", obj_bullet){
-				team = 1
-				alarm[0] = other.bullet_range
-				speed = other.bullet_speed
-				direction = point_direction(other.x + other.sprite_width/2 + (other.Inst.hspeed * other.Inst.move_speed / speed) , other.y + other.sprite_height/2 + (other.Inst.vspeed*other.Inst.move_speed/speed), other.Inst.x, other.Inst.y)
-				other.can_shoot = false
-			}
-		}
-		else if distance_to_object(obj_castle2) <= par_unit.bullet_speed*bullet_range{
-			if instance_exists(obj_castle2){
+	if Target == noone{
+		Inst = collision_circle(x + sprite_width/2, y + sprite_height/2, bullet_speed * bullet_range, par_player2, false, true){
+			if instance_exists(Inst){
 				with instance_create_layer(x + sprite_width/2, y + sprite_height/2, "Instances", obj_bullet){
 					team = 1
 					alarm[0] = other.bullet_range
 					speed = other.bullet_speed
-					direction = point_direction(other.x + other.sprite_width/2, other.y + other.sprite_height/2, obj_castle2.x + obj_castle2.sprite_width/2,obj_castle2.y + obj_castle2.sprite_height/2)
+					direction = point_direction(other.x + other.sprite_width/2, other.y + other.sprite_height/2, other.Inst.x + (other.Inst.hspeed * other.Inst.move_speed / speed), other.Inst.y + (other.Inst.vspeed*other.Inst.move_speed/speed))
 					other.can_shoot = false
+				}
+			}
+			else if distance_to_object(obj_castle2) <= par_unit.bullet_speed*bullet_range{
+				if instance_exists(obj_castle2){
+					with instance_create_layer(x + sprite_width/2, y + sprite_height/2, "Instances", obj_bullet){
+						team = 1
+						alarm[0] = other.bullet_range
+						speed = other.bullet_speed
+						direction = point_direction(other.x + other.sprite_width/2, other.y + other.sprite_height/2, obj_castle2.x + obj_castle2.sprite_width/2,obj_castle2.y + obj_castle2.sprite_height/2)
+						other.can_shoot = false
+					}
 				}
 			}
 		}
 	}
+	else{
+		with instance_create_layer(x + sprite_width/2, y + sprite_height/2, "Instances", obj_bullet){
+			team = 1
+			alarm[0] = other.bullet_range
+			speed = other.bullet_speed
+			direction = point_direction(other.x + other.sprite_width/2, other.y + other.sprite_height/2, other.Target.x + (other.Target.hspeed * other.Target.move_speed / speed), other.Target.y + (other.Target.vspeed*other.Target.move_speed/speed))
+			other.can_shoot = false
+		}
+	}
 }
+
 else if alarm[0] <= 0{
 	alarm[0] = bullet_reload
 }
