@@ -30,7 +30,7 @@ else{
 }
 	
 	
-//Get hit by bullet
+//Units hit by bullet
 with instance_place(x, y, obj_bullet){
 	//check team
 	if (team != other.team){
@@ -46,7 +46,6 @@ with instance_place(x, y, obj_bullet){
 if !place_free(x + hspeed, y + vspeed){
 	x -= hspeed
 	y -= vspeed
-}
 
 if hp <= 0{
 	instance_destroy()
