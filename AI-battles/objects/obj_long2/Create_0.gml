@@ -11,6 +11,7 @@ bullet_range_max = 20 //number of steps a bullet can travel
 bullet_range = bullet_range_max
 bullet_dmg = 5
 bullet_reload = 20
+range_buffer = 16
 
 //state
 state = STATE_ADVANCE

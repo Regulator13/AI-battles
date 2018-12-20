@@ -10,7 +10,7 @@ if (alarm[0] < 0) {
 		team = 2
 			
 		//set values
-		direction = point_direction(x, y, other.enemy_nearest.x, other.enemy_nearest.y)
+		direction = point_direction(x, y, other.target.x, other.target.y)
 		speed = other.bullet_speed
 			
 		//set range
