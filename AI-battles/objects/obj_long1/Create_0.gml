@@ -2,6 +2,7 @@
 
 // Inherit the parent event
 event_inherited();
+state2 = ST_EVADE
 
 move_speed_max = 2
 move_speed = move_speed_max
