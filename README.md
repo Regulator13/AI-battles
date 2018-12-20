@@ -9,4 +9,4 @@ Round 3 - Phabbits wins due to errors on Regulator side
 
 Round 4 - Regulator wins (Phabbits attacks his own men)
 
-Round 5 - Draw. But Phabbits killed Regulator guys
+Round 5 - Draw. But Phabbits killed Regulator guys. After bug fixes Regulator wins.
